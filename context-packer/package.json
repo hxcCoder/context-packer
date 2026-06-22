@@ -1,6 +1,6 @@
 {
   "name": "@hxccoder/context-packer",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "CLI avanzado para empaquetar repositorios de código para LLMs",
   "main": "dist/core/compiler.js",
   "bin": {
@@ -31,7 +31,6 @@
   "license": "MIT",
   "dependencies": {
     "@inquirer/prompts": "^8.5.2",
-    "commander": "^12.0.0",
     "ignore": "^5.3.1",
     "picocolors": "^1.0.0",
     "tiktoken": "^1.0.14"

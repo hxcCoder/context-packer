@@ -1,4 +1,5 @@
 import type { TokenizerStrategy } from './Tokenizer.interface';
+import { Buffer } from 'node:buffer';
 
 export class HeuristicTokenizerStrategy implements TokenizerStrategy {
     private readonly modelName: string;
@@ -36,9 +37,8 @@ estimateTokensFromBytes(bytes: number): number {
 }
 
 countTokensExact(text: string): number {
-    // En texto crudo (asumiendo UTF-8 estándar), la longitud del string
-    // es un proxy razonable para nuestra heurística segura.
-    return Math.ceil(text.length / this.bytesPerToken);
+    const bytes = Buffer.byteLength(text, 'utf8');
+    return Math.ceil(bytes / this.bytesPerToken);
 }
 
 destroy(): void {

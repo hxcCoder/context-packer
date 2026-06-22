@@ -6,7 +6,10 @@ import type { CancellationToken } from '../utils/cancelToken';
 export class RepoScanner {
     private readonly rootDir: string;
     private readonly ignoreFilter: Ignore;
-
+    
+    public getIgnoreFilter(): Ignore {
+    return this.ignoreFilter;
+}
 constructor(rootDir: string, ignoreFilter: Ignore) {
     this.rootDir = rootDir;
     this.ignoreFilter = ignoreFilter;
