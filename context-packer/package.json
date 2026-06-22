@@ -1,0 +1,40 @@
+{
+  "name": "context-packer",
+  "version": "1.0.0",
+  "description": "CLI avanzado para empaquetar repositorios de código para LLMs",
+  "main": "dist/core/compiler.js",
+  "bin": {
+    "context-packer": "./dist/cli.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "npm run build && node ./dist/cli.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "cli",
+    "llm",
+    "context",
+    "ai",
+    "gemini",
+    "gpt",
+    "claude"
+  ],
+  "author": "Benjamin Millalonco",
+  "license": "MIT",
+  "dependencies": {
+    "@inquirer/prompts": "^4.3.0",
+    "commander": "^12.0.0",
+    "ignore": "^5.3.1",
+    "picocolors": "^1.0.0",
+    "tiktoken": "^1.0.14"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.0"
+  }
+}
