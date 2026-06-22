@@ -1,5 +1,5 @@
 {
-  "name": "context-packer",
+  "name": "@hxccoder/context-packer",
   "version": "1.0.0",
   "description": "CLI avanzado para empaquetar repositorios de código para LLMs",
   "main": "dist/core/compiler.js",
@@ -15,6 +15,9 @@
     "start": "npm run build && node ./dist/cli.js",
     "clean": "rm -rf dist"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "cli",
     "llm",
