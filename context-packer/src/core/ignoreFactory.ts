@@ -10,47 +10,60 @@ export class IgnoreFactory {
    * Protegen la herramienta de bucles infinitos y basura binaria.
    */
 private static readonly MANDATORY_IGNORES = [
-    '.git',
-    '.git/',
-    'node_modules',
-    'node_modules/',
+   '.git', '.git/',
+    'node_modules', 'node_modules/',
+    'vendor', 'vendor/',           // Proyectos PHP/Composer
+    '__pycache__', '__pycache__/', // Proyectos Python
+    '.venv', '.venv/',             // Entornos virtuales Python
+    'dist', 'dist/',
+    'build', 'build/',
+    '.next', '.next/',             // Next.js
+    '.nuxt', '.nuxt/',             // Nuxt.js
+    '.svelte-kit', '.svelte-kit/', // Svelte
+    '.angular', '.angular/',       // Angular
+    '.expo', '.expo/',             // React Native
+    'out', 'out/',
+    'coverage', 'coverage/',
+    '.cache', '.cache/',
+
+    // 2. Archivos propios de la herramienta
     '.contexto-ia.tmp',
     'contexto-ia.txt',
-    'dist/',
-    'build/',
-    'coverage/',
-    '.env*',       // CRÍTICO: Evita filtrar secretos al LLM
-    '*.log',
-    '*.lock',      // package-lock.json o yarn.lock consumen demasiados tokens sin aportar lógica
 
-    // ──────────────────────────────────────────────────────────
-    // ESCUDO ANTIBINARIOS (Protección de Ventana de Tokens)
-    // ──────────────────────────────────────────────────────────
-    // Imágenes y Multimedia
-    '*.jpg',
-    '*.jpeg',
-    '*.png',
-    '*.gif',
-    '*.webp',
-    '*.ico',
-    '*.svg',       // Aunque es XML, suele inflar el contexto innecesariamente
-    '*.mp4',
-    '*.mp3',
-    
-    // Documentos compilados o pesados
-    '*.pdf',
-    '*.zip',
-    '*.tar.gz',
-    '*.rar',
-    '*.7z',
-    
-    // Binarios de fuentes y OS
-    '*.woff',
-    '*.woff2',
-    '*.ttf',
-    '*.eot',
-    'Thumbs.db',
-    '.DS_Store',
+    // 3. Seguridad Extrema (Secretos y Certificados)
+    '.env*',
+    '*.pem', '*.key', '*.crt', '*.cer', // Evita filtrar llaves privadas SSL/SSH
+    'secrets.json',
+
+    // 4. Bloqueadores de dependencias (Ruido masivo de tokens)
+    'package-lock.json',
+    'yarn.lock',
+    'pnpm-lock.yaml',
+    'bun.lockb',
+    'composer.lock', // PHP
+    'Cargo.lock',    // Rust
+    'Gemfile.lock',  // Ruby
+    'poetry.lock',   // Python
+
+    // 5. Archivos Multimedia e Imágenes
+    '*.png', '*.jpg', '*.jpeg', '*.gif', '*.webp', '*.ico', 
+    '*.svg', '*.mp4', '*.mp3', '*.wav', '*.pdf',
+
+    // 6. Archivos Comprimidos, Binarios y Fuentes (CRÍTICO)
+    '*.zip', '*.tar', '*.tar.gz', '*.rar', '*.7z', // Comprimidos
+    '*.ttf', '*.woff', '*.woff2', '*.eot', '*.otf', // Fuentes web
+    '*.exe', '*.dll', '*.so', '*.dylib', // Binarios compilados de OS
+
+    // 7. Bases de datos y logs
+    '*.log',
+    '*.sqlite', '*.sqlite3', '*.db', '*.sql',
+
+    // 8. Compilación pesada y Basura del Sistema Operativo
+    '*.map',       // Source maps (¡Pesadísimos!)
+    '*.min.js',    // Código JS minificado
+    '*.min.css',   // Código CSS minificado
+    '.DS_Store',   // Metadata basura de macOS
+    'Thumbs.db'
 ];
 
 /**
