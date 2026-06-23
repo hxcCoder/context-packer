@@ -1,6 +1,6 @@
 {
   "name": "@hxccoder/context-packer",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "CLI avanzado para empaquetar repositorios de código para LLMs",
   "main": "dist/core/compiler.js",
   "bin": {
